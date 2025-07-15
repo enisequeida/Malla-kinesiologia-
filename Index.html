@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Malla Kinesiología UNAB</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <h1>Malla Curricular – Kinesiología UNAB</h1>
-<div class="tema-selector">
-  <label for="tema">Color de la malla:</label>
-  <select id="tema" onchange="cambiarTema(this.value)">
-    <option value="rosa" selected>Rosa</option>
-    <option value="azul">Azul</option>
-  </select>
-</div>
-  <div id="semestres" class="semestres"><!----- columnas semestre -------->
+
+  <div class="tema-selector">
+    <label for="tema">Color de la malla:</label>
+    <select id="tema" aria-label="Selector de tema">
+      <option value="rosa" selected>Rosa</option>
+      <option value="azul">Azul</option>
+    </select>
+  </div>
+
+  <div class="filtro-semestre">
+    <label for="filtroSemestre">Filtrar por semestre:</label>
+    <select id="filtroSemestre" aria-label="Filtro de semestre">
+      <option value="todos" selected>Todos</option>
+      <option value="1">Semestre 1</option>
+      <option value="2">Semestre 2</option>
+      <option value="3">Semestre 3</option>
+      <option value="4">Semestre 4</option>
+      <option value="5">Semestre 5</option>
+      <option value="6">Semestre 6</option>
+      <option value="7">Semestre 7</option>
+      <option value="8">Semestre 8</option>
+      <option value="9">Semestre 9</option>
+      <option value="10">Semestre 10</option>
+    </select>
+  </div>
+
+  <div id="semestres" class="semestres">
 
     <!-- 1° -->
     <section class="semestre" data-sem="1">
@@ -114,7 +135,7 @@
       <button data-cod="KINE522">Práctica Profesional IV + Título</button>
     </section>
 
-  </div><!-- /semestres -->
+  </div>
 
   <script src="script.js"></script>
 </body>
