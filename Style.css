@@ -1,0 +1,78 @@
+/* ---------- paleta rosa ---------- */
+:root{
+  --rosa-pale : #ffe8f2;
+  --rosa-claro: #ffd1e6;
+  --rosa-mid  : #f8b7d0;
+  --rosa-dark : #c3366c;
+  --verde-ok  : #2e7d32;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+/* ---------- layout ---------- */
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:var(--rosa-pale);
+  padding:20px;
+  color:#333;
+  text-align:center;
+}
+
+h1{color:var(--rosa-dark);margin-bottom:20px;}
+
+.semestres{
+  display:flex;
+  flex-direction:row;
+  gap:24px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scroll-snap-type:x mandatory;
+}
+
+/* ---------- tarjeta semestre ---------- */
+.semestre{
+  min-width:240px;
+  background:#fff0f7;
+  border:2px solid var(--rosa-claro);
+  border-radius:12px;
+  padding:12px;
+  flex-shrink:0;
+  scroll-snap-align:start;
+}
+
+.semestre h2{
+  color:var(--rosa-dark);
+  margin-bottom:8px;
+  font-size:1.2rem;
+}
+
+/* ---------- botones-ramos ---------- */
+button{
+  width:100%;
+  margin:5px 0;
+  padding:9px 6px;
+  font-size:0.85rem;
+  line-height:1.2;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  background:var(--rosa-mid);
+  color:#632444;
+  transition:background .25s;
+}
+
+button:hover{background:#f59ec0;}
+
+/* bloqueado */
+button.bloqueado{
+  background:#ffe5ec;
+  color:#888;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+/* aprobado */
+button.aprobado{
+  background:#d6f7e2 !important;
+  color:var(--verde-ok) !important;
+}
