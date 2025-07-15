@@ -1,78 +1,120 @@
-/* ---------- paleta rosa ---------- */
-:root{
-  --rosa-pale : #ffe8f2;
-  --rosa-claro: #ffd1e6;
-  --rosa-mid  : #f8b7d0;
-  --rosa-dark : #c3366c;
-  --verde-ok  : #2e7d32;
+:root {
+  --rosa-principal: #e91e63;
+  --rosa-claro: #f8bbd0;
+  --azul-principal: #2196f3;
+  --azul-claro: #bbdefb;
+  --gris-claro: #f0f0f0;
+  --gris-texto: #333;
+  --verde-aprobado: #4caf50;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;}
-
-/* ---------- layout ---------- */
-body{
-  font-family:'Segoe UI',sans-serif;
-  background:var(--rosa-pale);
-  padding:20px;
-  color:#333;
-  text-align:center;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  background: var(--gris-claro);
+  color: var(--gris-texto);
 }
 
-h1{color:var(--rosa-dark);margin-bottom:20px;}
-
-.semestres{
-  display:flex;
-  flex-direction:row;
-  gap:24px;
-  overflow-x:auto;
-  padding-bottom:10px;
-  scroll-snap-type:x mandatory;
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-/* ---------- tarjeta semestre ---------- */
-.semestre{
-  min-width:240px;
-  background:#fff0f7;
-  border:2px solid var(--rosa-claro);
-  border-radius:12px;
-  padding:12px;
-  flex-shrink:0;
-  scroll-snap-align:start;
+.tema-selector,
+.filtro-semestre {
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  text-align: center;
 }
 
-.semestre h2{
-  color:var(--rosa-dark);
-  margin-bottom:8px;
-  font-size:1.2rem;
+.tema-selector label,
+.filtro-semestre label {
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 1.1rem;
 }
 
-/* ---------- botones-ramos ---------- */
-button{
-  width:100%;
-  margin:5px 0;
-  padding:9px 6px;
-  font-size:0.85rem;
-  line-height:1.2;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  background:var(--rosa-mid);
-  color:#632444;
-  transition:background .25s;
+.tema-selector select,
+.filtro-semestre select {
+  padding: 6px 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
-button:hover{background:#f59ec0;}
-
-/* bloqueado */
-button.bloqueado{
-  background:#ffe5ec;
-  color:#888;
-  cursor:not-allowed;
-  pointer-events:none;
+/* Contenedor semestres */
+.semestres {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
 }
 
-/* aprobado */
-button.aprobado{
-  background:#d6f7e2 !important;
-  color:var(--verde-ok) !important;
+/* Cada semestre es una columna */
+.semestre {
+  background: white;
+  border-radius: 12px;
+  padding: 15px 12px 20px 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  flex: 1 1 160px;
+  max-width: 180px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título semestre */
+.semestre h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: var(--rosa-principal);
+  transition: color 0.3s;
+}
+
+/* Tema azul cambia color título semestre */
+body.tema-azul .semestre h2 {
+  color: var(--azul-principal);
+}
+
+/* Botones asignatura */
+.semestre button {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 6px;
+  border: 2px solid var(--rosa-principal);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--rosa-principal);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+/* Tema azul cambia estilos botones */
+body.tema-azul .semestre button {
+  border-color: var(--azul-principal);
+  color: var(--azul-principal);
+}
+
+/* Botón aprobado: verde fondo, blanco texto */
+.semestre button.aprobado {
+  background-color: var(--verde-aprobado);
+  border-color: var(--verde-aprobado);
+  color: white;
+  font-weight: 700;
+}
+
+/* Ocultar semestres con clase oculto */
+.semestre.oculto {
+  display: none !important;
 }
