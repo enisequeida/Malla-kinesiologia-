@@ -7,7 +7,13 @@
 </head>
 <body>
   <h1>Malla Curricular – Kinesiología UNAB</h1>
-
+<div class="tema-selector">
+  <label for="tema">Color de la malla:</label>
+  <select id="tema" onchange="cambiarTema(this.value)">
+    <option value="rosa" selected>Rosa</option>
+    <option value="azul">Azul</option>
+  </select>
+</div>
   <div id="semestres" class="semestres"><!----- columnas semestre -------->
 
     <!-- 1° -->
